@@ -329,7 +329,6 @@ class _SignupScreenState extends State<SignupScreen> {
   bool _isPasswordVisible = false;
   bool _isConfirmPasswordVisible = false;
   String? _errorMessage;
-  String _selectedRole = 'user'; // 'user' hoặc 'admin'
 
   @override
   void dispose() {
@@ -381,7 +380,7 @@ class _SignupScreenState extends State<SignupScreen> {
       await _firestore.collection('users').doc(userCredential.user!.uid).set({
         'name': _nameController.text.trim(),
         'email': _emailController.text.trim(),
-        'role': _selectedRole,
+        'role': 'user', // Mặc định tất cả user mới là "user"
         'createdAt': DateTime.now(),
       });
 
@@ -553,33 +552,6 @@ class _SignupScreenState extends State<SignupScreen> {
                   fillColor: Colors.grey.shade100,
                 ),
                 enabled: !_isLoading,
-              ),
-              const SizedBox(height: 20),
-
-              // Role selection
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.grey.shade100,
-                ),
-                child: DropdownButton<String>(
-                  value: _selectedRole,
-                  isExpanded: true,
-                  underline: const SizedBox(),
-                  items: const [
-                    DropdownMenuItem(value: 'user', child: Text('Người dùng')),
-                    DropdownMenuItem(value: 'admin', child: Text('Quản trị viên')),
-                  ],
-                  onChanged: _isLoading ? null : (value) {
-                    if (value != null) {
-                      setState(() {
-                        _selectedRole = value;
-                      });
-                    }
-                  },
-                ),
               ),
               const SizedBox(height: 30),
 
