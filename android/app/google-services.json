@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "98302346584",
+    "project_id": "docbao-de836",
+    "storage_bucket": "docbao-de836.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:98302346584:android:616ff3662be2d9d576912d",
+        "android_client_info": {
+          "package_name": "com.example.baicuoiki"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFDbB9OXcd160N07FdjmrjuN5Z9_N6kN4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
